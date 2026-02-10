@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { studentAPI } from "../services/api";
-import "/Dashboard.css"
+import "./Dashboard.css";
 export default function StudentDashboard() {
   const navigate = useNavigate();
   const [student, setStudent] = useState(null);
