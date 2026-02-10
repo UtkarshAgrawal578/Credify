@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import IssueCredentialModal from '../components/IssueCredentialModal';
 
-const API_URL = 'http://localhost:5000/api';
+const API_URL = import.meta.env.VITE_API_URL + '/api';
 
 export default function IssuerDashboard() {
   const navigate = useNavigate();
