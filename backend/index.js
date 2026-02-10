@@ -13,10 +13,17 @@ const app = express();
 connectDB();
 
 // Middleware
+
+
 app.use(cors({
-  origin: "https://credify-amber.vercel.app/",
+  origin: [
+    "http://localhost:5173", // local dev
+    "https://credify-amber.vercel.app",
+    "https://credify-git-main-utkarsh-agrawals-projects-bbaf8b20.vercel.app"
+  ],
   credentials: true
 }));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
