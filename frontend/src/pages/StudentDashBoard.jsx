@@ -258,63 +258,99 @@ export default function StudentDashboard() {
 
         {/* VIEW MODAL (UNCHANGED – SHOWS EVERYTHING) */}
         {showViewModal && selectedCredential && (
-          <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-            <div className="bg-white rounded-xl max-w-lg w-full p-6 shadow-2xl">
-              <div className="flex justify-between items-center mb-4">
-                <h2 className="text-xl font-bold">Credential Details</h2>
-                <button
-                  onClick={() => setShowViewModal(false)}
-                  className="text-gray-600 text-2xl"
-                >
-                  ×
-                </button>
-              </div>
+  <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4 animate-fadeIn">
+    
+    {/* Modal Card */}
+    <div className="relative bg-white/95 backdrop-blur-lg rounded-2xl max-w-xl w-full p-6 shadow-[0_20px_60px_rgba(0,0,0,0.35)] border border-white/30 transform transition-all duration-300 scale-100">
 
-              <p className="text-lg font-semibold">{selectedCredential.title}</p>
-              <p className="text-gray-600">
-                Issued by: {selectedCredential.issuer?.name}
-              </p>
+      {/* Header */}
+      <div className="flex justify-between items-center mb-5 border-b pb-3">
+        <h2 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+          Credential Details
+        </h2>
 
-              <div className="mt-4 space-y-2 text-sm">
-                <p>
-                  📅 Issued:{" "}
-                  {new Date(
-                    selectedCredential.issuedDate
-                  ).toLocaleDateString()}
-                </p>
+        <button
+          onClick={() => setShowViewModal(false)}
+          className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-red-100 hover:text-red-600 transition-all duration-200 text-gray-600 text-lg"
+        >
+          ✕
+        </button>
+      </div>
 
-                {selectedCredential.expiresOn && (
-                  <p>
-                    ⏰ Expires:{" "}
-                    {new Date(
-                      selectedCredential.expiresOn
-                    ).toLocaleDateString()}
-                  </p>
-                )}
+      {/* Title & Issuer */}
+      <div className="mb-4">
+        <p className="text-xl font-semibold text-gray-800">
+          {selectedCredential.title}
+        </p>
+        <p className="text-sm text-gray-500 mt-1">
+          Issued by <span className="font-medium text-blue-600">
+            {selectedCredential.issuer?.name}
+          </span>
+        </p>
+      </div>
 
-                <p className="font-mono break-all">
-                  Hash: {selectedCredential.credentialHash}
-                </p>
-                   <p className="font-mono break-all">
-                  Description: {selectedCredential.description}
-                </p>
-              </div>
+      {/* Info Section */}
+      <div className="mt-4 space-y-3 text-sm text-gray-700">
 
-              {selectedCredential.metadata && (
-                <div className="mt-4 bg-blue-50 p-3 rounded">
-                  {Object.entries(selectedCredential.metadata).map(
-                    ([key, value]) => (
-                      <p key={key} className="flex justify-between text-sm">
-                        <span className="capitalize">{key}:</span>
-                        <span className="font-semibold">{value}</span>
-                      </p>
-                    )
-                  )}
-                </div>
-              )}
-            </div>
+        <div className="flex items-center justify-between bg-gray-100 rounded-lg px-3 py-2">
+          <span>📅 Issued</span>
+          <span className="font-medium">
+            {new Date(selectedCredential.issuedDate).toLocaleDateString()}
+          </span>
+        </div>
+
+        {selectedCredential.expiresOn && (
+          <div className="flex items-center justify-between bg-red-50 rounded-lg px-3 py-2">
+            <span>⏰ Expires</span>
+            <span className="font-medium text-red-600">
+              {new Date(selectedCredential.expiresOn).toLocaleDateString()}
+            </span>
           </div>
         )}
+
+        <div className="bg-gray-100 rounded-lg px-3 py-2">
+          <p className="text-xs text-gray-500 mb-1">Credential Hash</p>
+          <p className="font-mono text-xs break-all text-gray-800">
+            {selectedCredential.credentialHash}
+          </p>
+        </div>
+
+        {selectedCredential.description && (
+          <div className="bg-blue-50 rounded-lg px-3 py-2">
+            <p className="text-xs text-gray-500 mb-1">Description</p>
+            <p className="text-sm text-gray-800">
+              {selectedCredential.description}
+            </p>
+          </div>
+        )}
+      </div>
+
+      {/* Metadata Section */}
+      {selectedCredential.metadata && (
+        <div className="mt-5">
+          <h3 className="text-sm font-semibold text-gray-600 mb-2">
+            Additional Information
+          </h3>
+
+          <div className="grid grid-cols-2 gap-3">
+            {Object.entries(selectedCredential.metadata).map(
+              ([key, value]) => (
+                <div
+                  key={key}
+                  className="bg-indigo-50 rounded-lg px-3 py-2 text-sm shadow-sm hover:shadow-md transition"
+                >
+                  <p className="text-gray-500 text-xs capitalize">{key}</p>
+                  <p className="font-semibold text-indigo-700">{value}</p>
+                </div>
+              )
+            )}
+          </div>
+        </div>
+      )}
+    </div>
+  </div>
+)}
+
       </div>
     </>
   );
