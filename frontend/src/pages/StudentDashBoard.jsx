@@ -295,6 +295,9 @@ export default function StudentDashboard() {
                 <p className="font-mono break-all">
                   Hash: {selectedCredential.credentialHash}
                 </p>
+                   <p className="font-mono break-all">
+                  Description: {selectedCredential.description}
+                </p>
               </div>
 
               {selectedCredential.metadata && (
