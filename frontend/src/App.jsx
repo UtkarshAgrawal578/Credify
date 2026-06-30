@@ -1,6 +1,6 @@
 // src/App.jsx
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
+
 import ProtectedRoute from './components/ProtectedRoute';
 
 // Import Pages
@@ -17,7 +17,7 @@ function App() {
     <Router>
       <Routes>
         {/* Home with Navbar */}
-        <Route path="/" element={<><Navbar /><Landing /></>} />
+        <Route path="/" element={<><Landing /></>} />
         
         {/* Student Routes */}
         <Route path="/student/login" element={<StudentLogin />} />
