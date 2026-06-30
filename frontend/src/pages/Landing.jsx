@@ -196,7 +196,7 @@ function Landing() {
       {/* ================= FOOTER ================= */}
       <footer className="bg-black py-8 text-center text-gray-400 border-t border-white/10">
         <p className="font-semibold text-white">© 2025 Credify. All Rights Reserved.</p>
-        <p className="text-sm mt-2">Built with MERN • TailwindCSS • Secure Credential Protocol</p>
+        <p className="text-sm mt-2">Secure Credential Protocol</p>
       </footer>
 
     </div>
