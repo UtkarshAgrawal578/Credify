@@ -45,10 +45,6 @@ function Landing() {
       title: "🏫 Issuer Dashboard",
       desc: "Institutions issue tamper-proof digital certificates securely in seconds.",
     },
-    {
-      title: "✔ Instant Verification",
-      desc: "Employers verify certificates instantly using Credential ID or QR Code.",
-    },
   ];
 
   const steps = [
@@ -61,11 +57,6 @@ function Landing() {
       step: "2",
       title: "Student Stores Securely",
       desc: "Certificates are safely stored in the student’s wallet.",
-    },
-    {
-      step: "3",
-      title: "Verifier Checks Instantly",
-      desc: "Employers verify authenticity instantly via QR or ID.",
     },
   ];
 
@@ -85,8 +76,8 @@ function Landing() {
 
         <Reveal delay={200}>
           <p className="mt-8 text-gray-300 text-base sm:text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
-            Credify lets students store certificates digitally, institutions issue them securely,
-            and employers verify them instantly — all with trust and transparency.
+            Credify lets students store certificates digitally and institutions issue them
+            securely — all with trust and transparency.
           </p>
         </Reveal>
 
@@ -105,20 +96,13 @@ function Landing() {
             >
               Issuer Portal
             </Link>
-
-            <Link
-              to="/verify"
-              className="px-8 py-3 rounded-xl font-semibold bg-white/10 backdrop-blur-md border border-gray-500 hover:bg-white/20 hover:scale-105 transition-all duration-300"
-            >
-              Verify Credential
-            </Link>
           </div>
         </Reveal>
       </section>
 
 
       {/* ================= FEATURES ================= */}
-      <section className="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-10 pb-24">
+      <section className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-10 pb-24">
         {features.map((feature, index) => (
           <Reveal key={index} delay={index * 200}>
             <div className="bg-white/5 backdrop-blur-xl p-8 rounded-2xl border border-white/10 hover:border-blue-500 hover:scale-105 hover:shadow-xl hover:shadow-blue-500/20 transition-all duration-300">
@@ -139,7 +123,7 @@ function Landing() {
           </h2>
         </Reveal>
 
-        <div className="grid md:grid-cols-3 gap-12">
+        <div className="grid md:grid-cols-2 gap-12">
           {steps.map((item, index) => (
             <Reveal key={index} delay={index * 250}>
               <div className="relative bg-white/5 backdrop-blur-lg p-8 rounded-2xl border border-white/10 hover:scale-105 hover:border-cyan-400 transition-all duration-300">
@@ -164,7 +148,7 @@ function Landing() {
           </h2>
 
           <p className="text-gray-300 mt-4 text-lg">
-            Trusted, secure, and instant credential verification for the modern world.
+            Trusted, secure credential management for the modern world.
           </p>
 
           <div className="mt-10 flex flex-col sm:flex-row gap-6 justify-center">
@@ -180,13 +164,6 @@ function Landing() {
               className="px-8 py-3 rounded-xl font-bold border border-white/20 hover:bg-white/10 hover:scale-105 transition-all duration-300"
             >
               Issuer Login
-            </Link>
-
-            <Link
-              to="/verify"
-              className="px-8 py-3 rounded-xl font-bold bg-white/10 backdrop-blur-md hover:bg-white/20 hover:scale-105 transition-all duration-300"
-            >
-              Verify Now
             </Link>
           </div>
         </section>
