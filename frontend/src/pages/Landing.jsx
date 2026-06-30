@@ -47,81 +47,6 @@ function CredentialSeal() {
   );
 }
 
-/* ================= Navbar ================= */
-
-function Navbar() {
-  const [open, setOpen] = useState(false);
-
-  const links = [
-    { to: "/student/dashboard", label: "Student Wallet" },
-    { to: "/issuer/login", label: "Issuer Portal" },
-  ];
-
-  return (
-    <header className="sticky top-0 z-50 bg-[#0B1024]/90 backdrop-blur-md border-b border-white/10">
-      <nav className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-        <Link to="/" className="font-serif text-xl text-[#F1ECDD] tracking-wide">
-          Credify
-        </Link>
-
-        <div className="hidden sm:flex items-center gap-8">
-          {links.map((link) => (
-            <Link
-              key={link.to}
-              to={link.to}
-              className="text-sm text-[#C7CCE6] hover:text-[#C9A24C] transition-colors duration-200"
-            >
-              {link.label}
-            </Link>
-          ))}
-          <Link
-            to="/student/login"
-            className="px-5 py-2 rounded-lg text-sm font-semibold bg-[#C9A24C] text-[#0B1024] hover:bg-[#dcb55e] transition-colors duration-200"
-          >
-            Sign In
-          </Link>
-        </div>
-
-        <button
-          onClick={() => setOpen(!open)}
-          className="sm:hidden text-[#F1ECDD] p-2"
-          aria-label="Toggle menu"
-        >
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            {open ? (
-              <path d="M6 6l12 12M18 6L6 18" strokeLinecap="round" />
-            ) : (
-              <path d="M3 6h18M3 12h18M3 18h18" strokeLinecap="round" />
-            )}
-          </svg>
-        </button>
-      </nav>
-
-      {open && (
-        <div className="sm:hidden bg-[#0B1024] border-t border-white/10 px-6 py-4 flex flex-col gap-4">
-          {links.map((link) => (
-            <Link
-              key={link.to}
-              to={link.to}
-              onClick={() => setOpen(false)}
-              className="text-sm text-[#C7CCE6] hover:text-[#C9A24C] transition-colors duration-200"
-            >
-              {link.label}
-            </Link>
-          ))}
-          <Link
-            to="/student/login"
-            onClick={() => setOpen(false)}
-            className="px-5 py-2 rounded-lg text-sm font-semibold bg-[#C9A24C] text-[#0B1024] text-center"
-          >
-            Sign In
-          </Link>
-        </div>
-      )}
-    </header>
-  );
-}
-
 /* ================= Landing Page ================= */
 
 function Landing() {
@@ -151,7 +76,6 @@ function Landing() {
 
   return (
     <div className="min-h-screen bg-[#0B1024] text-[#F1ECDE]">
-      <Navbar />
 
       {/* ================= HERO ================= */}
       <section className="max-w-7xl mx-auto px-6 pt-20 pb-24 grid lg:grid-cols-2 gap-16 items-center">
